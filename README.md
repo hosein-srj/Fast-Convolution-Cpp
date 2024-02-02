@@ -11,7 +11,7 @@ Make sure you have the FFTW3 library installed. You can find more information ab
 Download fftw from website and place in  Pwelch folder.
 
 ## Usage
-### Pwelch Class
+### Conv_Corr Class
 The Conv_Corr class is the core of this implementation. It includes a function FFT_Convolution with the following parameters:
 
 - input: The input signal represented as std::complex<double>.
