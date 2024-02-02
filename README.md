@@ -16,7 +16,7 @@ The Conv_Corr class is the core of this implementation. It includes a function F
 
 - input: The input signal represented as std::complex<double>.
   
-- kernel: the polynomial coefficient
+- kernel: the polynomial coefficients
 
 
 ### Example
