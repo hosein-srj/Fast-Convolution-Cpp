@@ -16,31 +16,31 @@ The Conv_Corr class is the core of this implementation. It includes a function F
 
 - input: The input signal represented as std::complex<double>.
   
-- w: the size of window
-  
-- overlap: Number of overlapping samples between segments.
-  
-- nfft: Number of points for the FFT.
-  
-- windowtype: Type of window function to be applied (hamming or hanning).
+- kernel: the polynomial coefficient
 
 
 ### Example
 
 ```c++
+#include "Conv_Corr.h"
+#include "defines.h"
 #include <iostream>
-#include "Pwelch.h"
-  
-int main()
+
+int main(int argc, char *argv[])
 {
-     //Load your input
-    vector<doubleC> inp(8192);
-    int w = 512;
-    int overlap = 256;
-    int nfft = 1024;
-    Pwelch pwelch;
-    vector<double> pxx = pwelch.Pwelch_Process(inp, w, overlap, nfft, WindowType::hamming);
-    
+    Conv_Corr conv;
+    vector<c_double> inp(50000);
+    for(int i=0;i< (int)inp.size();i++){
+        inp[i].real(i*2);
+        inp[i].imag(i*2+1);
+    }
+    vector<double> kernel(512);
+    for(int i=0; i< (int)(kernel.size());i++){
+        kernel[i] = i;
+    }
+
+    vector<c_double> out = conv.FFT_Convolution(inp, kernel);    
+    return ;
 }
 ```
 
